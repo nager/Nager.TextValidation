@@ -19,12 +19,17 @@ namespace Nager.TextValidation
             var distance = 0.0;
             for (var i = 1; i < input.Length; i++)
             {
-                input = input.ToLower();
-                var c1 = input[i - 1];
-                var c2 = input[i];
-                if (charPositions.ContainsKey(c1) && charPositions.ContainsKey(c2))
+                var lastChar = char.ToLower(input[i - 1]);
+                var currentChar = char.ToLower(input[i]);
+
+                if (char.IsUpper(input[i]) != char.IsUpper(input[i - 1]))
                 {
-                    distance += (charPositions[c1]).Distance(charPositions[c2]);
+                    distance += 1;
+                }
+
+                if (charPositions.ContainsKey(lastChar) && charPositions.ContainsKey(currentChar))
+                {
+                    distance += (charPositions[lastChar]).Distance(charPositions[currentChar]);
                 }
             }
             distanceAverage = (distance / input.Length);

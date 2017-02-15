@@ -4,18 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7BB0FDBD-2BE9-443E-B7AF-E30D67A8D022}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{0FDC0845-885B-4925-89C3-F5BED0D2EFDD}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Nager.TextValidation.TestConsole</RootNamespace>
-    <AssemblyName>Nager.TextValidation.TestConsole</AssemblyName>
+    <RootNamespace>Nager.TextValidation.DrawKeyboard</RootNamespace>
+    <AssemblyName>Nager.TextValidation.DrawKeyboard</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -25,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -36,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,17 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="DrawEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Nager.TextValidation.DrawKeyboard\Nager.TextValidation.DrawKeyboard.csproj">
-      <Project>{0fdc0845-885b-4925-89c3-f5bed0d2efdd}</Project>
-      <Name>Nager.TextValidation.DrawKeyboard</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Nager.TextValidation\Nager.TextValidation.csproj">
       <Project>{80c867d8-9628-4f55-8fb3-3fe54bf1c98e}</Project>
       <Name>Nager.TextValidation</Name>
