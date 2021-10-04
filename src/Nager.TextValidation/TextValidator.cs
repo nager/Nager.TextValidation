@@ -1,22 +1,23 @@
-﻿using Nager.TextValidation.Contract;
+﻿using Nager.TextValidation.KeyboardLayouts;
 
 namespace Nager.TextValidation
 {
-    public class Validator
+    public class TextValidator
     {
-        private IKeyboard _keyboard;
+        private IKeyboardLayout _keyboardLayout;
 
-        public Validator(IKeyboard keyboard)
+        public TextValidator(IKeyboardLayout keyboardLayout)
         {
-            this._keyboard = keyboard;
+            this._keyboardLayout = keyboardLayout;
         }
 
         public double Check(string input)
         {
-            var charPositions = this._keyboard.GetCharPositions();
+            var keyPositions = this._keyboardLayout.GetKeyPositions();
 
             var distanceAverage = 0.0;
             var distance = 0.0;
+
             for (var i = 1; i < input.Length; i++)
             {
                 var lastChar = char.ToLower(input[i - 1]);
@@ -27,11 +28,12 @@ namespace Nager.TextValidation
                     distance += 1;
                 }
 
-                if (charPositions.ContainsKey(lastChar) && charPositions.ContainsKey(currentChar))
+                if (keyPositions.ContainsKey(lastChar) && keyPositions.ContainsKey(currentChar))
                 {
-                    distance += (charPositions[lastChar]).Distance(charPositions[currentChar]);
+                    distance += (keyPositions[lastChar]).Distance(keyPositions[currentChar]);
                 }
             }
+
             distanceAverage = (distance / input.Length);
 
             return distanceAverage;

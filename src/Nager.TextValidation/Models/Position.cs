@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Nager.TextValidation.Model
+namespace Nager.TextValidation.Models
 {
     public struct Position
     {

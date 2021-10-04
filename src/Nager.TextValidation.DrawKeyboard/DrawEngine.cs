@@ -1,13 +1,13 @@
-﻿using Nager.TextValidation.Contract;
+﻿using Nager.TextValidation.KeyboardLayouts;
 using System.Drawing;
 
 namespace Nager.TextValidation.DrawKeyboard
 {
     public class DrawEngine
     {
-        public void DrawKeyboard(IKeyboard keyboard)
+        public void DrawKeyboard(IKeyboardLayout keyboardLayout)
         {
-            var keys = keyboard.GetCharPositions();
+            var keys = keyboardLayout.GetKeyPositions();
 
             using (var bitmap = new Bitmap(1000, 200))
             {
@@ -22,7 +22,7 @@ namespace Nager.TextValidation.DrawKeyboard
                         graphic.DrawString(key.Key.ToString(), new Font(FontFamily.GenericSerif, 10), new SolidBrush(Color.Black), x, y);
                     }
 
-                    bitmap.Save($"{keyboard.GetType()}.bmp");
+                    bitmap.Save($"{keyboardLayout.GetType()}.bmp");
                 }
             }
         }

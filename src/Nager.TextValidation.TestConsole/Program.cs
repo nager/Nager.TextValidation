@@ -1,5 +1,5 @@
 ﻿using Nager.TextValidation.DrawKeyboard;
-using Nager.TextValidation.KeyboardLayout;
+using Nager.TextValidation.KeyboardLayouts;
 using System;
 
 namespace Nager.TextValidation.TestConsole
@@ -8,9 +8,9 @@ namespace Nager.TextValidation.TestConsole
     {
         static void Main(string[] args)
         {
-            new DrawEngine().DrawKeyboard(new QwertzKeyboard());
-            new DrawEngine().DrawKeyboard(new QwertyKeyboard());
-            new DrawEngine().DrawKeyboard(new AzertyKeyboard());
+            new DrawEngine().DrawKeyboard(new QwertzKeyboardLayout());
+            new DrawEngine().DrawKeyboard(new QwertyKeyboardLayout());
+            new DrawEngine().DrawKeyboard(new AzertyKeyboardLayout());
 
 
             //KeyboardKeyDistance.Check(“hallo”);             4.1441311123146738
@@ -18,7 +18,7 @@ namespace Nager.TextValidation.TestConsole
             //KeyboardKeyDistance.Check(“fred”);              0.93401699437494745
             //KeyboardKeyDistance.Check(“Datenqualität”);     6.2739057206509461
 
-            var validator = new Validator(new QwertzKeyboard());
+            var validator = new TextValidator(new QwertzKeyboardLayout());
 
             var goodWords = new string[] { "Thomas", "Simone", "Fred", "Michael", "Apfelbaum", "Schwierig", "Vielleicht", "Manchmal", "Brot", "Kaffee", "Deutschland", "Feuerwehr" };
             var badWords = new string[] { "asdf", "qwertz", "asddfghjk", "qwead", "gfdsa", "ycxcyxc" };
