@@ -4,13 +4,13 @@ With this library you can validate a text is meaningful. Its calculate a average
 Three Keyboard layouts available (Azerty, Qwerty, Qwertz)
 
 ```cs
-var validator = new Validator(new QwertzKeyboard());
+var textValidator = new TextValidator(new QwertzKeyboardLayout());
 
 //Good
-var result = validator.Check("Amsterdam");
+var result = textValidator.Check("Amsterdam");
 //result = 4.5072716803479853
 
 //Bad
-result = validator.Check("asdfghj");
+result = textValidator.Check("asdfghj");
 //result = 0.8571428571428571
 ```
